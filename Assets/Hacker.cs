@@ -41,7 +41,7 @@ public class Hacker : MonoBehaviour
         }
         else if (currentScreen == Screen.Password)
         {
-            TestPass(input);
+            CheckPassword(input);
         }
     }
 
@@ -52,10 +52,12 @@ public class Hacker : MonoBehaviour
             case "1":
                 level = 1;
                 StartGame(input);
+                password = "one";
                 break;
             case "2":
                 level = 2;
                 StartGame(input);
+                password = "two";
                 break;
             case "007":
                 Terminal.WriteLine("Hi Mr. Bond! Please select a level.");
@@ -92,9 +94,18 @@ public class Hacker : MonoBehaviour
         Terminal.WriteLine("Please type the Password:");
     }
 
-    private void TestPass(string input)
+    private void CheckPassword(string input)
     {
-        if (level == 1)
+        if (input == password)
+        {
+            Terminal.WriteLine("Well Done!");
+        }
+        else
+        {
+            Terminal.WriteLine("Sorry, your password is wrong!");
+            Terminal.WriteLine("Please type the Password:");
+        }
+        /*if (level == 1)
         {
             if (input == "one")
             {
@@ -118,6 +129,6 @@ public class Hacker : MonoBehaviour
                 Terminal.WriteLine("Sorry, your password is wrong!");
                 Terminal.WriteLine("Please type the Password:");
             }
-        }
+        }*/
     }
 }
